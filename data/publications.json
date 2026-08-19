@@ -1,0 +1,81 @@
+[
+  {
+    "year": 2026,
+    "title": "iResolveX: Multi-Layered Indirect Call Resolution via Static Reasoning and Learning-Augmented Refinement",
+    "authors": "M. Santra, B. Zhang, M. Lim, V. A. Dasu, D. Zeng, G. Tan",
+    "venue": "USENIX Security",
+    "tags": ["arXiv:2601.17888"],
+    "arxiv": "https://arxiv.org/abs/2601.17888"
+  },
+  {
+    "year": 2026,
+    "title": "Heimdall: Formally Verified Automated Migration of Legacy eBPF Programs to Rust",
+    "authors": "V. A. Dasu, M. Santra, M. R. U. Rashid, A. Kumar, S. Tizpaz-Niari, G. Tan",
+    "venue": "arXiv preprint",
+    "tags": ["arXiv:2605.25411"],
+    "citations": 1,
+    "arxiv": "https://arxiv.org/abs/2605.25411"
+  },
+  {
+    "year": 2026,
+    "title": "BinType: Type-Based Indirect Call Target Refinement on Binary Programs",
+    "authors": "S. H. Kim, D. Zeng, M. Santra, G. Tan",
+    "venue": "ACM CODASPY 2026",
+    "tags": ["ACM CODASPY"]
+  },
+  {
+    "year": 2026,
+    "title": "BPA-X: An Architecture-Agnostic Block-Based Points-to Analysis for Stripped Binaries",
+    "authors": "B. Zhang, M. Santra, S. Hussain, G. Tan",
+    "venue": "NDSS 2026",
+    "tags": ["NDSS"]
+  },
+  {
+    "year": 2026,
+    "title": "Defending AI/ML Models Against Adversarial Attacks with Significant Contextual Features for Better Security",
+    "authors": "R. K. Koppanati, M. Santra, S. K. Peddoju",
+    "venue": "Applied Soft Computing",
+    "tags": ["Applied Soft Computing"]
+  },
+  {
+    "year": 2025,
+    "title": "DISA: Accurate Learning-based Static Disassembly with Attentions",
+    "authors": "P. Wang, M. Santra, M. Liu, C. Sun, D. Zeng, G. Tan",
+    "venue": "ACM CCS 2025 (Cycle A)",
+    "tags": ["ACM CCS", "arXiv:2507.07246"],
+    "citations": 4,
+    "arxiv": "https://arxiv.org/abs/2507.07246"
+  },
+  {
+    "year": 2025,
+    "title": "D²4D: Dynamic Deep 4-Dimensional Analysis for Malware Detection",
+    "authors": "R. K. Koppanati, M. Santra, S. K. Peddoju",
+    "venue": "IEEE Transactions on Information Forensics and Security (TIFS), vol. 20, pp. 2083–2095",
+    "tags": ["IEEE TIFS"],
+    "citations": 5
+  },
+  {
+    "year": 2025,
+    "title": "AI-Augmented Static Analysis: Bridging Heuristics and Completeness for Practical Reverse Engineering",
+    "authors": "M. Santra",
+    "venue": "ACM CCS Doctoral Symposium 2025",
+    "tags": ["ACM CCS DS"],
+    "citations": 1
+  },
+  {
+    "year": 2025,
+    "title": "PotentRegion4MalDetect: Advanced Features from Potential Malicious Regions for Malware Detection",
+    "authors": "R. K. Koppanati, M. Santra, S. K. Peddoju",
+    "venue": "Applied Soft Computing",
+    "tags": ["arXiv:2507.06723"],
+    "arxiv": "https://arxiv.org/abs/2507.06723"
+  },
+  {
+    "year": 2017,
+    "title": "Design and Analysis of a Modified Remote Attestation Protocol",
+    "authors": "M. Santra, S. K. Peddoju, A. K. Bhattacharjee, A. Khan",
+    "venue": "IEEE TrustCom/BigDataSE/ICESS 2017, Sydney, pp. 578–585",
+    "tags": ["IEEE TrustCom"],
+    "citations": 4
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "school": "The Pennsylvania State University",
+    "period": "2022 – present",
+    "degree": "PhD in Computer Science &amp; Engineering · GPA 4.0/4.0",
+    "location": "State College, PA, USA",
+    "thesis": "Dissertation: AI-Augmented Static Analysis: Bridging Heuristics and Completeness for Practical Reverse Engineering · Advisor: Dr. G. Gary Tan"
+  },
+  {
+    "school": "Indian Institute of Technology Roorkee",
+    "period": "2015 – 2017",
+    "degree": "M.Tech in Computer Science &amp; Engineering · CGPA 9.765/10",
+    "location": "Uttarakhand, India",
+    "thesis": "Dissertation: Design and Implementation of Remote Attestation Protocols for Servers · Advisors: Dr. Sateesh K. Peddoju &amp; Dr. Anup K. Bhattacharjee (BARC)"
+  },
+  {
+    "school": "Govt. College of Engineering &amp; Textile Technology, Serampore (WBUT)",
+    "period": "2010 – 2014",
+    "degree": "B.Tech in Computer Science &amp; Engineering · CGPA 8.86/10",
+    "location": "West Bengal, India",
+    "thesis": null
+  }
+]

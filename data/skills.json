@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Languages",
+    "items": ["C", "C++", "Python", "Java", "Bash"]
+  },
+  {
+    "label": "Binary Analysis",
+    "items": ["GHIDRA", "Angr", "IDA Pro", "Radare2", "capstone", "pyelftools", "DWARF", "SVF"]
+  },
+  {
+    "label": "ML / Data",
+    "items": ["Keras", "Scikit-Learn", "NumPy", "Pandas", "Matplotlib", "weka", "TREX", "Fairseq"]
+  },
+  {
+    "label": "Systems &amp; Virt.",
+    "items": ["QEMU/KVM", "VirtualBox", "Linux", "Windows", "Arduino", "Wireshark", "LLVM"]
+  }
+]
