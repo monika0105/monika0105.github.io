@@ -23,5 +23,20 @@
     "name": "ACaM — Agent Capability Model (IBM Research)",
     "description": "A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.",
     "skills": ["neurosymbolic analysis", "LLM integration", "taint analysis", "threat modeling"]
+  },
+  {
+    "name": "Trusted Systems for I&C Networks (BARC)",
+    "description": "Delivered an in-house Hardware Reference Monitor (PCIe & USB) for industrial control networks — Secure Boot, Authentication, and Remote Attestation for host/guest Linux and Windows, backed by kernel/device drivers, an Application Whitelisting framework, and a real-time trust dashboard. Also shipped a DPI-based Industrial Control Firewall (Modbus/TCP) for field-to-supervisory policy enforcement, and extended QEMU-KVM with SRAM-based PUF hardware security.",
+    "skills": ["hardware reference monitor", "secure boot & remote attestation", "kernel/device drivers", "industrial control (Modbus/TCP)"]
+  },
+  {
+    "name": "Automated Multilayered Malware Classifier (BARC)",
+    "description": "Designed, built, and deployed an ensemble malware classifier combining static and dynamic analysis, with CFG-driven shallow and deep features, integrated into an Application Whitelisting framework for host-side protection.",
+    "skills": ["ensemble classifiers", "static/dynamic analysis", "CFG-based features"]
+  },
+  {
+    "name": "D²4D — Dynamic Deep 4-Dimensional Malware Detection",
+    "description": "A dynamic analysis framework for malware detection built on four complementary feature dimensions, published in IEEE Transactions on Information Forensics and Security (TIFS).",
+    "skills": ["dynamic analysis", "feature engineering", "malware detection"]
   }
 ]

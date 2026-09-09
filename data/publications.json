@@ -3,8 +3,9 @@
     "year": 2026,
     "title": "iResolveX: Multi-Layered Indirect Call Resolution via Static Reasoning and Learning-Augmented Refinement",
     "authors": "M. Santra, B. Zhang, M. Lim, V. A. Dasu, D. Zeng, G. Tan",
-    "venue": "arXiv preprint",
+    "venue": "NDSS 2026",
     "tags": [
+      "under review",
       "arXiv:2601.17888"
     ],
     "arxiv": "https://arxiv.org/abs/2601.17888"

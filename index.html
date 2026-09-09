@@ -79,7 +79,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
 .page { margin-left: var(--nav-w); }
-.page-inner { max-width: 680px; margin: 0 auto; padding: 4rem 3rem 5rem; }
+.page-inner { max-width: clamp(680px, 68vw, 880px); margin: 0 auto; padding: 4rem 3.5rem 5rem; }
 
 /* ─── SIDE NAV ───────────────────────────────────────────────────────── */
 .side-nav {
@@ -249,7 +249,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
   border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-faint);
 }
 .footer-inner {
-  max-width: 680px; margin: 0 auto; padding: 2rem 3rem 3rem;
+  max-width: clamp(680px, 68vw, 880px); margin: 0 auto; padding: 2rem 3.5rem 3rem;
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
 .site-footer a { color: var(--text-faint); }
@@ -397,6 +397,24 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
         <p class="project-desc">A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.</p>
         <p class="project-skills"><strong>Skills:</strong> neurosymbolic analysis, LLM integration, taint analysis, threat modeling</p>
       </div>
+
+      <div class="project-item">
+        <div class="project-name">Trusted Systems for I&C Networks (BARC)</div>
+        <p class="project-desc">Delivered an in-house Hardware Reference Monitor (PCIe & USB) for industrial control networks — Secure Boot, Authentication, and Remote Attestation for host/guest Linux and Windows, backed by kernel/device drivers, an Application Whitelisting framework, and a real-time trust dashboard. Also shipped a DPI-based Industrial Control Firewall (Modbus/TCP) for field-to-supervisory policy enforcement, and extended QEMU-KVM with SRAM-based PUF hardware security.</p>
+        <p class="project-skills"><strong>Skills:</strong> hardware reference monitor, secure boot & remote attestation, kernel/device drivers, industrial control (Modbus/TCP)</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">Automated Multilayered Malware Classifier (BARC)</div>
+        <p class="project-desc">Designed, built, and deployed an ensemble malware classifier combining static and dynamic analysis, with CFG-driven shallow and deep features, integrated into an Application Whitelisting framework for host-side protection.</p>
+        <p class="project-skills"><strong>Skills:</strong> ensemble classifiers, static/dynamic analysis, CFG-based features</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">D²4D — Dynamic Deep 4-Dimensional Malware Detection</div>
+        <p class="project-desc">A dynamic analysis framework for malware detection built on four complementary feature dimensions, published in IEEE Transactions on Information Forensics and Security (TIFS).</p>
+        <p class="project-skills"><strong>Skills:</strong> dynamic analysis, feature engineering, malware detection</p>
+      </div>
     </div>
   </section>
 
@@ -532,8 +550,9 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
         <div>
           <div class="pub-title">iResolveX: Multi-Layered Indirect Call Resolution via Static Reasoning and Learning-Augmented Refinement</div>
           <div class="pub-authors"><span class="author-self">M. Santra</span>, B. Zhang, M. Lim, V. A. Dasu, D. Zeng, G. Tan</div>
-          <div class="pub-venue">arXiv preprint</div>
+          <div class="pub-venue">NDSS 2026</div>
           <div class="pub-tags">
+            <span class="pub-tag tag-review">under review</span>
             <a href="https://arxiv.org/abs/2601.17888" target="_blank" rel="noopener" class="pub-tag tag-arxiv">arXiv:2601.17888</a>
           </div>
         </div>

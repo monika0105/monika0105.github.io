@@ -253,7 +253,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-
 
 /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
 .page { margin-left: var(--nav-w); }
-.page-inner { max-width: 680px; margin: 0 auto; padding: 4rem 3rem 5rem; }
+.page-inner { max-width: clamp(680px, 68vw, 880px); margin: 0 auto; padding: 4rem 3.5rem 5rem; }
 
 /* ─── SIDE NAV ───────────────────────────────────────────────────────── */
 .side-nav {
@@ -423,7 +423,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
   border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-faint);
 }
 .footer-inner {
-  max-width: 680px; margin: 0 auto; padding: 2rem 3rem 3rem;
+  max-width: clamp(680px, 68vw, 880px); margin: 0 auto; padding: 2rem 3.5rem 3rem;
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
 .site-footer a { color: var(--text-faint); }
