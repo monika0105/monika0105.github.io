@@ -1,87 +1,30 @@
 [
   {
     "org": "IBM Research",
-    "period": "20XX",
     "role": "Research Intern — Agentic Security",
+    "period": "20XX",
     "location": "TBD",
-    "projects": [
-      {
-        "name": "Agentic Security Research",
-        "bullets": [
-          "Add a short description of your project here.",
-          "Add another bullet describing impact or findings."
-        ]
-      }
-    ]
+    "description": "Research on the security of agentic AI systems."
   },
   {
     "org": "The Pennsylvania State University",
-    "period": "2022 – present",
     "role": "PhD Candidate — The SOS Group",
+    "period": "2022 – present",
     "location": "State College, PA, USA",
-    "projects": [
-      {
-        "name": "Agent Capability Model (ACaM) — Agentic security analysis",
-        "bullets": [
-          "Developing a static + LLM-augmented pipeline to characterize security properties of LLM-based autonomous agents: taint tracking, capability boundary detection, and attack-surface enumeration.",
-          "Evaluating against real-world agentic frameworks (LangChain, LangGraph, AutoGen) and synthesizing ground-truth benchmarks for controlled ablation."
-        ]
-      },
-      {
-        "name": "DISA — Learning-guided static disassembly &amp; CFG recovery",
-        "bullets": [
-          "Designed a transformer-based disassembly framework jointly recovering code layout and memory block boundaries on large stripped binaries.",
-          "Integrated memory block boundaries into a downstream block-level VSA-driven CFG recovery tool, improving control-flow via sound indirect call resolution."
-        ]
-      },
-      {
-        "name": "iResolveX — Hybrid indirect-call resolution",
-        "bullets": [
-          "Multi-stage pipeline coupling high-recall target supersets with ML-guided re-ranking and bounded inter-procedural evidence support.",
-          "Produces p-IndirectCFG: a practical ranked-edge CFG enabling controllable precision–recall tradeoffs for IDA/Ghidra/angr consumers."
-        ]
-      }
-    ]
+    "description": "Researching program analysis and AI/ML for binary security — indirect call resolution, static disassembly, control-flow recovery, and agentic security."
   },
   {
     "org": "Bhabha Atomic Research Centre (BARC)",
-    "period": "2017 – 2022",
     "role": "Research Scientist, Grade C → D",
+    "period": "2017 – 2022",
     "location": "Maharashtra, India",
-    "projects": [
-      {
-        "name": "Automated Multilayered Malware Classifier (2019–2022)",
-        "bullets": [
-          "Designed and deployed an ensemble classifier combining basic/advanced static and dynamic analysis; introduced CFG-driven shallow+deep features integrated with an Application Whitelisting framework."
-        ]
-      },
-      {
-        "name": "Binary Vulnerability Detection via LLVM IR",
-        "bullets": [
-          "Static analysis-driven detector for buffer overflows and memory leaks in third-party binaries; contributed LLVM IR-level data flow-analysis checks."
-        ]
-      },
-      {
-        "name": "Trusted Systems for I&amp;C Networks (2017–2019)",
-        "bullets": [
-          "Designed the in-house Hardware Reference Monitor (PCIe &amp; USB): Secure Boot, Authentication, Remote Attestation for host/guest Linux and Windows.",
-          "Advanced Industrial Control Firewall (Modbus/TCP): DPI-based kernel module for application-layer policy enforcement between field and supervisory networks."
-        ]
-      }
-    ]
+    "description": "Built trusted systems, industrial control-network security tooling, and ensemble malware classifiers for host protection."
   },
   {
-    "org": "IIT Roorkee — BARC sponsored M.Tech Fellow",
+    "org": "IIT Roorkee",
+    "role": "DGFS Fellow — BARC-sponsored M.Tech",
     "period": "2015 – 2017",
-    "role": "DGFS Fellow (DAE Graduate Fellowship Scheme)",
     "location": "Uttarakhand, India",
-    "projects": [
-      {
-        "name": null,
-        "bullets": [
-          "Proposed and implemented a novel remote attestation protocol addressing low extensibility and openness problems in existing schemes — published at IEEE TrustCom 2017."
-        ]
-      }
-    ]
+    "description": "Proposed and implemented a novel remote attestation protocol, published at IEEE TrustCom 2017."
   }
 ]

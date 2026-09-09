@@ -1,41 +1,20 @@
 {
   "name": "Monika Santra",
-  "title": "PhD Candidate · Penn State",
-  "group": "The SOS Group",
-  "university": "The Pennsylvania State University",
+  "title": "PhD Candidate, Computer Science &amp; Engineering &middot; Penn State",
+  "tagline": "Software &amp; systems security researcher — binary analysis, program analysis, and AI/ML for security.",
   "email": "mvs7165@psu.edu",
-  "period": "2022 – present",
-  "advisor": "Dr. G. Gary Tan",
-  "tagline": "PhD candidate at Penn State working on <strong>software &amp; systems security</strong> — binary analysis, control-flow recovery, vulnerability discovery, and malware analysis, augmented with AI/ML for practical reverse engineering at scale.",
-  "about": [
-    "I am a PhD candidate in the <strong>Security of Software (SOS) Group</strong> at Penn State, advised by Dr. G. Gary Tan. My research sits at the intersection of <strong>program analysis and machine learning</strong>, focusing on making static analysis of compiled binaries practical, scalable, and precise — and more recently on <strong>agentic security</strong>: characterizing capability boundaries and attack surfaces of LLM-based autonomous agents.",
-    "Before Penn State, I spent five years as a Research Scientist at <strong>Bhabha Atomic Research Centre (BARC)</strong>, India's premier nuclear research facility, where I built trusted systems, industrial control-network security tooling, and ensemble malware classifiers for host protection.",
-    "I hold an M.Tech from <strong>IIT Roorkee</strong> (CGPA 9.765/10, DGFS Fellow, DAE) and a B.Tech from Govt. College of Engineering &amp; Textile Technology, Serampore. I ranked in the <strong>top 0.1% nationally in GATE CS 2015</strong>."
-  ],
-  "interests": [
-    "binary analysis",
-    "control-flow recovery",
-    "indirect call resolution",
-    "malware analysis",
-    "vulnerability discovery",
-    "AI/ML for RE",
-    "agentic security",
-    "trusted systems",
-    "memory safety"
-  ],
+  "photo": "images/profile.jpg",
   "links": {
     "scholar": "https://scholar.google.com/citations?user=_pZNnycAAAAJ&hl=en",
     "linkedin": "https://linkedin.com/in/monika-santra",
     "google_sites": "https://sites.google.com/view/monika-santra/home",
     "arxiv": "https://arxiv.org/search/?query=Monika+Santra&searchtype=author&abstracts=show&order=-announced_date_first&size=50",
-    "cv": "cv/Monika_CV_new.pdf",
-    "youtube": "https://www.youtube.com/@ReverseLearner101/videos"
+    "cv": "cv/Monika_CV_new.pdf"
   },
   "scholar_stats": {
     "hindex": 3,
     "total_citations": 16
   },
-  "contact_note": "I am open to research collaborations, invited talks, and PhD industry internship opportunities in program analysis, systems security, and AI/ML for software security.",
   "analytics": {
     "goatcounter_site": ""
   }

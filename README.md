@@ -10,15 +10,15 @@ All content lives in JSON files inside `data/`. Edit a file, run one command, an
 
 ```
 data/
-├── profile.json       ← name, title, university, email, about text, links, analytics
+├── profile.json       ← name, title, tagline, photo, email, links, analytics
 ├── publications.json  ← papers (title, authors, venue, year, tags, arxiv URL, citations)
-├── experience.json    ← jobs / research positions
+├── experience.json    ← jobs / research positions (org, role, period, location, one-line description)
 ├── education.json     ← degrees
 ├── awards.json        ← honors and awards
-├── skills.json        ← skill groups and items
-├── service.json       ← reviewer / organizer roles
-└── hobbies.json       ← hobby cards with links
+└── projects.json      ← project name + a couple lines of description
 ```
+
+The site is intentionally minimal: a profile photo, Experience, Education, Honors & Awards, Projects, and Publications. No skills grid, photo gallery, service list, or hobbies section.
 
 ### Everyday workflow
 
@@ -49,11 +49,8 @@ Edit `data/profile.json`:
 
 ```json
 {
-  "title":      "Postdoc · MIT CSAIL",
-  "university": "Massachusetts Institute of Technology",
-  "group":      "CSAIL",
-  "period":     "2026 – present",
-  "advisor":    "Dr. Somebody"
+  "title":   "Postdoc · MIT CSAIL",
+  "tagline": "Short one-line description of what you work on."
 }
 ```
 
@@ -85,19 +82,22 @@ Append to `data/experience.json`:
 
 ```json
 {
-  "org":      "MIT CSAIL",
-  "period":   "2026 – present",
-  "role":     "Postdoctoral Researcher",
-  "location": "Cambridge, MA, USA",
-  "projects": [
-    {
-      "name": "Project Alpha",
-      "bullets": [
-        "First bullet point describing what you did.",
-        "Second bullet point."
-      ]
-    }
-  ]
+  "org":         "MIT CSAIL",
+  "period":      "2026 – present",
+  "role":        "Postdoctoral Researcher",
+  "location":    "Cambridge, MA, USA",
+  "description": "One line describing what you work on there."
+}
+```
+
+### Add a new project
+
+Append to `data/projects.json`:
+
+```json
+{
+  "name": "Project Alpha",
+  "description": "A couple of lines describing what it is and why it matters."
 }
 ```
 
@@ -112,26 +112,16 @@ git commit -m "Update CV"
 git push
 ```
 
-The links in the sidebar and hero button point to `cv/Monika_CV_new.pdf` — no rebuild needed as long as the filename stays the same.
+The CV link in the header points to `cv/Monika_CV_new.pdf` — no rebuild needed as long as the filename stays the same.
 
-### Add photos
+### Change the profile photo
 
-Drop JPEG/PNG files into `images/` using these names:
-
-| Filename | Shown as |
-|---|---|
-| `images/profile.jpg` | Profile |
-| `images/research.jpg` | Research |
-| `images/talk.jpg` | Talk |
-| `images/lab.jpg` | Lab |
-| `images/hobby.jpg` | Hobby |
-
-The page detects them automatically and replaces the SVG placeholder tiles — **no rebuild needed**.
+Replace `images/profile.jpg` with a new square-ish image (it's cropped into a circle). `profile.json`'s `"photo"` field points at it, so no rebuild is needed as long as the filename stays the same.
 
 ```bash
 cp ~/Downloads/my_photo.jpg images/profile.jpg
-git add images/
-git commit -m "Add photos"
+git add images/profile.jpg
+git commit -m "Update profile photo"
 git push
 ```
 
@@ -241,17 +231,11 @@ portfolio-site/
 │   ├── experience.json
 │   ├── education.json
 │   ├── awards.json
-│   ├── skills.json
-│   ├── service.json
-│   └── hobbies.json
+│   └── projects.json
 ├── cv/
 │   └── Monika_CV_new.pdf
-├── images/             # Drop photos here (no rebuild needed)
-│   ├── profile.jpg     (optional)
-│   ├── research.jpg    (optional)
-│   ├── talk.jpg        (optional)
-│   ├── lab.jpg         (optional)
-│   └── hobby.jpg       (optional)
+├── images/
+│   └── profile.jpg     # Profile photo shown in the header
 └── README.md
 ```
 

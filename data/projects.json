@@ -1,0 +1,18 @@
+[
+  {
+    "name": "iResolveX",
+    "description": "Multi-layered indirect call resolution combining static reasoning with learning-augmented refinement for stripped binaries. Published at USENIX Security."
+  },
+  {
+    "name": "DISA",
+    "description": "Learning-guided static disassembly using attention-based transformers to accurately recover code layout on stripped binaries. Published at ACM CCS 2025."
+  },
+  {
+    "name": "Agent Capability Model (ACaM)",
+    "description": "A static- and LLM-augmented pipeline that characterizes capability boundaries and attack surfaces of LLM-based autonomous agents."
+  },
+  {
+    "name": "Automated Malware Classifier",
+    "description": "An ensemble classifier combining static and dynamic analysis for host-based malware detection, deployed at BARC."
+  }
+]
