@@ -36,6 +36,8 @@ experience   = load("experience.json")
 education    = load("education.json")
 awards       = load("awards.json")
 projects     = load("projects.json")
+skills       = load("skills.json")
+hobbies      = load("hobbies.json")
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -73,9 +75,6 @@ def render_publications(pubs):
     rows = []
     for p in pubs:
         tags_html = "\n            ".join(tag_html(t, arxiv_urls) for t in (p.get("tags") or []))
-        if p.get("citations"):
-            n = p["citations"]
-            tags_html += f'\n            <span class="pub-tag tag-cite">{n} citation{"s" if n != 1 else ""}</span>'
         rows.append(f"""
       <div class="pub-item">
         <div class="pub-year">{p['year']}</div>
@@ -137,11 +136,41 @@ def render_awards(aws):
 def render_projects(prs):
     rows = []
     for pr in prs:
+        skills_html = ""
+        if pr.get("skills"):
+            skills_html = f'<p class="project-skills"><strong>Skills:</strong> {", ".join(pr["skills"])}</p>'
         rows.append(f"""
       <div class="project-item">
         <div class="project-name">{pr['name']}</div>
         <p class="project-desc">{pr['description']}</p>
+        {skills_html}
       </div>""")
+    return "\n".join(rows)
+
+
+def render_skills(sk):
+    rows = []
+    for g in sk:
+        items = "\n          ".join(f'<span class="skill-tag">{i}</span>' for i in g["items"])
+        rows.append(f"""
+      <div class="skill-group">
+        <div class="skill-label">{g['label']}</div>
+        <div class="skill-items">
+          {items}
+        </div>
+      </div>""")
+    return "\n".join(rows)
+
+
+def render_hobbies(hb):
+    rows = []
+    for h in hb:
+        rows.append(f"""
+      <a href="{h['link']}" target="_blank" rel="noopener" class="hobby-item">
+        <div class="hobby-title">{h['title']}</div>
+        <p class="hobby-desc">{h['desc']}</p>
+        <div class="hobby-link">{h['link_label']} &rarr;</div>
+      </a>""")
     return "\n".join(rows)
 
 
@@ -354,9 +383,36 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
 }}
 
 /* ─── PROJECTS ───────────────────────────────────────────────────────── */
-.project-list {{ display: flex; flex-direction: column; gap: 1.25rem; }}
+.project-list {{ display: flex; flex-direction: column; gap: 1.5rem; }}
 .project-name {{ font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }}
 .project-desc {{ font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }}
+.project-skills {{ font-size: 0.76rem; color: var(--text-faint); margin-top: 0.35rem; line-height: 1.5; }}
+.project-skills strong {{ color: var(--text-muted); font-weight: 500; }}
+
+/* ─── SKILLS ─────────────────────────────────────────────────────────── */
+.skills-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }}
+.skill-label {{
+  font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem;
+}}
+.skill-items {{ display: flex; flex-wrap: wrap; gap: 0.35rem; }}
+.skill-tag {{
+  font-size: 0.73rem; padding: 0.25rem 0.6rem;
+  background: var(--bg-card2); border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-muted);
+}}
+
+/* ─── HOBBIES ────────────────────────────────────────────────────────── */
+.hobby-list {{ display: flex; flex-direction: column; gap: 0.75rem; }}
+.hobby-item {{
+  display: block; padding: 1rem 1.25rem; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  text-decoration: none; color: inherit; transition: border-color 0.15s;
+}}
+.hobby-item:hover {{ border-color: var(--accent); text-decoration: none; }}
+.hobby-title {{ font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }}
+.hobby-desc {{ font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.5rem; }}
+.hobby-link {{ font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent); }}
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {{
@@ -414,6 +470,22 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      {render_projects(projects)}
+    </div>
+  </section>
+
+  <!-- SKILLS SUMMARY -->
+  <section id="skills">
+    <h2 class="section-title">Skills Summary</h2>
+    <div class="skills-grid">
+      {render_skills(skills)}
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <h2 class="section-title">Education</h2>
@@ -430,14 +502,6 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      {render_projects(projects)}
-    </div>
-  </section>
-
   <!-- PUBLICATIONS -->
   <section id="publications">
     <h2 class="section-title">Publications</h2>
@@ -450,6 +514,14 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
       &middot; <a href="{lk['arxiv']}" target="_blank" rel="noopener">arXiv</a>
       &middot; h-index: {st['hindex']} &middot; {st['total_citations']} total citations
     </p>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <h2 class="section-title">Hobbies</h2>
+    <div class="hobby-list">
+      {render_hobbies(hobbies)}
+    </div>
   </section>
 
 </div>

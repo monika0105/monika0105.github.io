@@ -192,9 +192,36 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────────────────── */
-.project-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.project-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .project-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.project-skills { font-size: 0.76rem; color: var(--text-faint); margin-top: 0.35rem; line-height: 1.5; }
+.project-skills strong { color: var(--text-muted); font-weight: 500; }
+
+/* ─── SKILLS ─────────────────────────────────────────────────────────── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
+.skill-label {
+  font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag {
+  font-size: 0.73rem; padding: 0.25rem 0.6rem;
+  background: var(--bg-card2); border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-muted);
+}
+
+/* ─── HOBBIES ────────────────────────────────────────────────────────── */
+.hobby-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.hobby-item {
+  display: block; padding: 1rem 1.25rem; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  text-decoration: none; color: inherit; transition: border-color 0.15s;
+}
+.hobby-item:hover { border-color: var(--accent); text-decoration: none; }
+.hobby-title { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.hobby-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.5rem; }
+.hobby-link { font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent); }
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {
@@ -251,11 +278,11 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
       
       <div class="exp-item">
         <div class="exp-header">
-          <div class="exp-org">IBM Research</div>
-          <div class="exp-period">20XX</div>
+          <div class="exp-org">IBM Research — Thomas J. Watson Research Center</div>
+          <div class="exp-period">May 2026 – Aug 2026</div>
         </div>
-        <div class="exp-role">Research Intern — Agentic Security &middot; TBD</div>
-        <p class="exp-desc">Research on the security of agentic AI systems.</p>
+        <div class="exp-role">Research Scientist Intern &middot; Yorktown Heights, NY, USA</div>
+        <p class="exp-desc">Working within the security research group on agentic AI systems — threat modeling, attack surface analysis, and defense mechanisms for autonomous AI agents. Contributing to research at the intersection of agent architectures, program analysis, software, and systems security.</p>
       </div>
 
       <div class="exp-item">
@@ -283,6 +310,91 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
         </div>
         <div class="exp-role">DGFS Fellow — BARC-sponsored M.Tech &middot; Uttarakhand, India</div>
         <p class="exp-desc">Proposed and implemented a novel remote attestation protocol, published at IEEE TrustCom 2017.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      
+      <div class="project-item">
+        <div class="project-name">DISA</div>
+        <p class="project-desc">A transformer-based disassembly framework that recovers code layout and memory block boundaries on stripped binaries, feeding downstream CFG recovery.</p>
+        <p class="project-skills"><strong>Skills:</strong> static disassembly, transformer models, CFG recovery</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">iResolveX (under review, NDSS)</div>
+        <p class="project-desc">A multi-stage pipeline combining high-recall indirect-call target supersets with ML-guided re-ranking, producing p-IndirectCFG.</p>
+        <p class="project-skills"><strong>Skills:</strong> static/binary analysis, ML-guided ranking, indirect-call resolution</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">CAIR (targeting ASIACCS 2027)</div>
+        <p class="project-desc">A GNN-based, pluggable indirect-call refinement approach using Structured Call Refinement Graphs (SCRGs).</p>
+        <p class="project-skills"><strong>Skills:</strong> graph neural networks, SCRG construction, benchmarking on SPEC CPU</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">Agentic Fuzzing for Indirect-Call Ground Truth</div>
+        <p class="project-desc">An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.</p>
+        <p class="project-skills"><strong>Skills:</strong> fuzzer internals (AFL++), SMT-based proof, agentic systems, static/dynamic analysis</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-name">ACaM — Agent Capability Model (IBM Research)</div>
+        <p class="project-desc">A static analysis pipeline combining program analysis with LLM semantic-lifting to detect threats in LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen) — exfiltration chains, prompt injection, policy violations, LLM-poisoning-triggered exfiltration, and covert channels. Also covers information-flow/taint propagation across multi-agent pipelines, vulnerability scanning of deployed agentic systems, LLM-generated fuzzing grammars, and supply-chain attacks via description–implementation divergence (DID).</p>
+        <p class="project-skills"><strong>Skills:</strong> static analysis, LLM integration, LangChain/LangGraph internals, taint/information-flow analysis, vulnerability scanning, fuzzing grammar generation, supply chain security, threat modeling</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SUMMARY -->
+  <section id="skills">
+    <h2 class="section-title">Skills Summary</h2>
+    <div class="skills-grid">
+      
+      <div class="skill-group">
+        <div class="skill-label">Languages</div>
+        <div class="skill-items">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Binary & Program Analysis</div>
+        <div class="skill-items">
+          <span class="skill-tag">GHIDRA</span>
+          <span class="skill-tag">Angr</span>
+          <span class="skill-tag">IDA Pro</span>
+          <span class="skill-tag">Radare2</span>
+          <span class="skill-tag">LLVM</span>
+          <span class="skill-tag">SVF</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">ML / AI</div>
+        <div class="skill-items">
+          <span class="skill-tag">Transformers</span>
+          <span class="skill-tag">Graph Neural Networks</span>
+          <span class="skill-tag">Scikit-Learn</span>
+          <span class="skill-tag">LangChain / LangGraph</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">Systems</div>
+        <div class="skill-items">
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">QEMU/KVM</span>
+          <span class="skill-tag">Wireshark</span>
+        </div>
       </div>
     </div>
   </section>
@@ -361,33 +473,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      
-      <div class="project-item">
-        <div class="project-name">iResolveX</div>
-        <p class="project-desc">Multi-layered indirect call resolution combining static reasoning with learning-augmented refinement for stripped binaries. Published at USENIX Security.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="project-name">DISA</div>
-        <p class="project-desc">Learning-guided static disassembly using attention-based transformers to accurately recover code layout on stripped binaries. Published at ACM CCS 2025.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="project-name">Agent Capability Model (ACaM)</div>
-        <p class="project-desc">A static- and LLM-augmented pipeline that characterizes capability boundaries and attack surfaces of LLM-based autonomous agents.</p>
-      </div>
-
-      <div class="project-item">
-        <div class="project-name">Automated Malware Classifier</div>
-        <p class="project-desc">An ensemble classifier combining static and dynamic analysis for host-based malware detection, deployed at BARC.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- PUBLICATIONS -->
   <section id="publications">
     <h2 class="section-title">Publications</h2>
@@ -398,7 +483,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
         <div>
           <div class="pub-title">iResolveX: Multi-Layered Indirect Call Resolution via Static Reasoning and Learning-Augmented Refinement</div>
           <div class="pub-authors"><span class="author-self">M. Santra</span>, B. Zhang, M. Lim, V. A. Dasu, D. Zeng, G. Tan</div>
-          <div class="pub-venue">USENIX Security</div>
+          <div class="pub-venue">arXiv preprint</div>
           <div class="pub-tags">
             <a href="https://arxiv.org/abs/2601.17888" target="_blank" rel="noopener" class="pub-tag tag-arxiv">arXiv:2601.17888</a>
           </div>
@@ -413,7 +498,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
           <div class="pub-venue">arXiv preprint</div>
           <div class="pub-tags">
             <a href="https://arxiv.org/abs/2605.25411" target="_blank" rel="noopener" class="pub-tag tag-arxiv">arXiv:2605.25411</a>
-            <span class="pub-tag tag-cite">1 citation</span>
           </div>
         </div>
       </div>
@@ -463,7 +547,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
           <div class="pub-tags">
             <span class="pub-tag tag-venue">ACM CCS</span>
             <a href="https://arxiv.org/abs/2507.07246" target="_blank" rel="noopener" class="pub-tag tag-arxiv">arXiv:2507.07246</a>
-            <span class="pub-tag tag-cite">4 citations</span>
           </div>
         </div>
       </div>
@@ -476,7 +559,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
           <div class="pub-venue">IEEE Transactions on Information Forensics and Security (TIFS), vol. 20, pp. 2083–2095</div>
           <div class="pub-tags">
             <span class="pub-tag tag-venue">IEEE TIFS</span>
-            <span class="pub-tag tag-cite">5 citations</span>
           </div>
         </div>
       </div>
@@ -489,7 +571,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
           <div class="pub-venue">ACM CCS Doctoral Symposium 2025</div>
           <div class="pub-tags">
             <span class="pub-tag tag-venue">ACM CCS DS</span>
-            <span class="pub-tag tag-cite">1 citation</span>
           </div>
         </div>
       </div>
@@ -514,7 +595,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
           <div class="pub-venue">IEEE TrustCom/BigDataSE/ICESS 2017, Sydney, pp. 578–585</div>
           <div class="pub-tags">
             <span class="pub-tag tag-venue">IEEE TrustCom</span>
-            <span class="pub-tag tag-cite">4 citations</span>
           </div>
         </div>
       </div>
@@ -525,6 +605,19 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
       &middot; <a href="https://arxiv.org/search/?query=Monika+Santra&searchtype=author&abstracts=show&order=-announced_date_first&size=50" target="_blank" rel="noopener">arXiv</a>
       &middot; h-index: 3 &middot; 16 total citations
     </p>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <h2 class="section-title">Hobbies</h2>
+    <div class="hobby-list">
+      
+      <a href="https://www.youtube.com/@ReverseLearner101/videos" target="_blank" rel="noopener" class="hobby-item">
+        <div class="hobby-title">Reverse Learner 101</div>
+        <p class="hobby-desc">My YouTube channel exploring reverse engineering, binary analysis, and security research concepts — explained from first principles.</p>
+        <div class="hobby-link">@ReverseLearner101 &rarr;</div>
+      </a>
+    </div>
   </section>
 
 </div>

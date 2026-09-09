@@ -1,18 +1,27 @@
 [
   {
-    "name": "iResolveX",
-    "description": "Multi-layered indirect call resolution combining static reasoning with learning-augmented refinement for stripped binaries. Published at USENIX Security."
-  },
-  {
     "name": "DISA",
-    "description": "Learning-guided static disassembly using attention-based transformers to accurately recover code layout on stripped binaries. Published at ACM CCS 2025."
+    "description": "A transformer-based disassembly framework that recovers code layout and memory block boundaries on stripped binaries, feeding downstream CFG recovery.",
+    "skills": ["static disassembly", "transformer models", "CFG recovery"]
   },
   {
-    "name": "Agent Capability Model (ACaM)",
-    "description": "A static- and LLM-augmented pipeline that characterizes capability boundaries and attack surfaces of LLM-based autonomous agents."
+    "name": "iResolveX (under review, NDSS)",
+    "description": "A multi-stage pipeline combining high-recall indirect-call target supersets with ML-guided re-ranking, producing p-IndirectCFG.",
+    "skills": ["static/binary analysis", "ML-guided ranking", "indirect-call resolution"]
   },
   {
-    "name": "Automated Malware Classifier",
-    "description": "An ensemble classifier combining static and dynamic analysis for host-based malware detection, deployed at BARC."
+    "name": "CAIR (targeting ASIACCS 2027)",
+    "description": "A GNN-based, pluggable indirect-call refinement approach using Structured Call Refinement Graphs (SCRGs).",
+    "skills": ["graph neural networks", "SCRG construction", "benchmarking on SPEC CPU"]
+  },
+  {
+    "name": "Agentic Fuzzing for Indirect-Call Ground Truth",
+    "description": "An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.",
+    "skills": ["fuzzer internals (AFL++)", "SMT-based proof", "agentic systems", "static/dynamic analysis"]
+  },
+  {
+    "name": "ACaM — Agent Capability Model (IBM Research)",
+    "description": "A static analysis pipeline combining program analysis with LLM semantic-lifting to detect threats in LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen) — exfiltration chains, prompt injection, policy violations, LLM-poisoning-triggered exfiltration, and covert channels. Also covers information-flow/taint propagation across multi-agent pipelines, vulnerability scanning of deployed agentic systems, LLM-generated fuzzing grammars, and supply-chain attacks via description–implementation divergence (DID).",
+    "skills": ["static analysis", "LLM integration", "LangChain/LangGraph internals", "taint/information-flow analysis", "vulnerability scanning", "fuzzing grammar generation", "supply chain security", "threat modeling"]
   }
 ]

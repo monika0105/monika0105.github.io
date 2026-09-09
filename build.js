@@ -31,6 +31,8 @@ const experience   = JSON.parse(fs.readFileSync(path.join(d, 'experience.json'),
 const education    = JSON.parse(fs.readFileSync(path.join(d, 'education.json'),    'utf8'));
 const awards       = JSON.parse(fs.readFileSync(path.join(d, 'awards.json'),       'utf8'));
 const projects     = JSON.parse(fs.readFileSync(path.join(d, 'projects.json'),     'utf8'));
+const skills       = JSON.parse(fs.readFileSync(path.join(d, 'skills.json'),       'utf8'));
+const hobbies      = JSON.parse(fs.readFileSync(path.join(d, 'hobbies.json'),      'utf8'));
 
 // ── Helper: resolve tag class ────────────────────────────────────────────────
 function tagHtml(tag, arxivLinks) {
@@ -62,8 +64,7 @@ function renderPublications(pubs) {
       .map(a => a.trim() === 'M. Santra' ? `<span class="author-self">${a}</span>` : a)
       .join(', ');
 
-    const citTag = p.citations ? `<span class="pub-tag tag-cite">${p.citations} citation${p.citations !== 1 ? 's' : ''}</span>` : '';
-    const tagsHtml = (p.tags || []).map(t => tagHtml(t, arxivUrls)).join('\n            ') + citTag;
+    const tagsHtml = (p.tags || []).map(t => tagHtml(t, arxivUrls)).join('\n            ');
 
     return `
       <div class="pub-item">
@@ -119,11 +120,37 @@ function renderAwards(aws) {
 }
 
 function renderProjects(prs) {
-  return prs.map(pr => `
+  return prs.map(pr => {
+    const skillsHtml = pr.skills ? `<p class="project-skills"><strong>Skills:</strong> ${pr.skills.join(', ')}</p>` : '';
+    return `
       <div class="project-item">
         <div class="project-name">${pr.name}</div>
         <p class="project-desc">${pr.description}</p>
-      </div>`).join('\n');
+        ${skillsHtml}
+      </div>`;
+  }).join('\n');
+}
+
+function renderSkills(sk) {
+  return sk.map(g => {
+    const items = g.items.map(i => `<span class="skill-tag">${i}</span>`).join('\n          ');
+    return `
+      <div class="skill-group">
+        <div class="skill-label">${g.label}</div>
+        <div class="skill-items">
+          ${items}
+        </div>
+      </div>`;
+  }).join('\n');
+}
+
+function renderHobbies(hb) {
+  return hb.map(h => `
+      <a href="${h.link}" target="_blank" rel="noopener" class="hobby-item">
+        <div class="hobby-title">${h.title}</div>
+        <p class="hobby-desc">${h.desc}</p>
+        <div class="hobby-link">${h.link_label} &rarr;</div>
+      </a>`).join('\n');
 }
 
 // ── GoatCounter snippet ──────────────────────────────────────────────────────
@@ -335,9 +362,36 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────────────────── */
-.project-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.project-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .project-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.project-skills { font-size: 0.76rem; color: var(--text-faint); margin-top: 0.35rem; line-height: 1.5; }
+.project-skills strong { color: var(--text-muted); font-weight: 500; }
+
+/* ─── SKILLS ─────────────────────────────────────────────────────────── */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.25rem; }
+.skill-label {
+  font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent);
+  letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem;
+}
+.skill-items { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag {
+  font-size: 0.73rem; padding: 0.25rem 0.6rem;
+  background: var(--bg-card2); border: 1px solid var(--border);
+  border-radius: 3px; color: var(--text-muted);
+}
+
+/* ─── HOBBIES ────────────────────────────────────────────────────────── */
+.hobby-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.hobby-item {
+  display: block; padding: 1rem 1.25rem; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  text-decoration: none; color: inherit; transition: border-color 0.15s;
+}
+.hobby-item:hover { border-color: var(--accent); text-decoration: none; }
+.hobby-title { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.hobby-desc { font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.5rem; }
+.hobby-link { font-size: 0.75rem; font-family: var(--font-mono); color: var(--accent); }
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {
@@ -395,6 +449,22 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
     </div>
   </section>
 
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="project-list">
+      ${renderProjects(projects)}
+    </div>
+  </section>
+
+  <!-- SKILLS SUMMARY -->
+  <section id="skills">
+    <h2 class="section-title">Skills Summary</h2>
+    <div class="skills-grid">
+      ${renderSkills(skills)}
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <h2 class="section-title">Education</h2>
@@ -411,14 +481,6 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      ${renderProjects(projects)}
-    </div>
-  </section>
-
   <!-- PUBLICATIONS -->
   <section id="publications">
     <h2 class="section-title">Publications</h2>
@@ -431,6 +493,14 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
       &middot; <a href="${lk.arxiv}" target="_blank" rel="noopener">arXiv</a>
       &middot; h-index: ${st.hindex} &middot; ${st.total_citations} total citations
     </p>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <h2 class="section-title">Hobbies</h2>
+    <div class="hobby-list">
+      ${renderHobbies(hobbies)}
+    </div>
   </section>
 
 </div>

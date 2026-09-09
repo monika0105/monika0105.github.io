@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Languages",
+    "items": ["C", "C++", "Python", "Java"]
+  },
+  {
+    "label": "Binary & Program Analysis",
+    "items": ["GHIDRA", "Angr", "IDA Pro", "Radare2", "LLVM", "SVF"]
+  },
+  {
+    "label": "ML / AI",
+    "items": ["Transformers", "Graph Neural Networks", "Scikit-Learn", "LangChain / LangGraph"]
+  },
+  {
+    "label": "Systems",
+    "items": ["Linux", "QEMU/KVM", "Wireshark"]
+  }
+]
