@@ -1,27 +1,27 @@
 [
   {
     "name": "DISA",
-    "description": "A transformer-based disassembly framework that recovers code layout and memory block boundaries on stripped binaries, feeding downstream CFG recovery.",
-    "skills": ["static disassembly", "transformer models", "CFG recovery"]
+    "description": "AI/ML-assisted memory modeling for stripped binaries — recovering code layout and memory boundaries to power value-set analysis for more accurate indirect call resolution.",
+    "skills": ["AI/ML memory modeling", "value-set analysis", "indirect-call resolution"]
   },
   {
     "name": "iResolveX (under review, NDSS)",
-    "description": "A multi-stage pipeline combining high-recall indirect-call target supersets with ML-guided re-ranking, producing p-IndirectCFG.",
-    "skills": ["static/binary analysis", "ML-guided ranking", "indirect-call resolution"]
+    "description": "Introduces a new meta-CFG construct — p-IndirectCFG — so downstream analyses get a CFG customized to their own precision/recall needs, instead of one traditional one-size-fits-all CFG.",
+    "skills": ["meta-CFG construction", "ML-guided ranking", "indirect-call resolution"]
   },
   {
     "name": "CAIR (targeting ASIACCS 2027)",
-    "description": "A GNN-based, pluggable indirect-call refinement approach using Structured Call Refinement Graphs (SCRGs).",
-    "skills": ["graph neural networks", "SCRG construction", "benchmarking on SPEC CPU"]
+    "description": "Separates weak from strong program-analysis evidence, using ML to combine them for more precise indirect call resolution.",
+    "skills": ["graph neural networks", "evidence weighting", "indirect-call resolution"]
   },
   {
     "name": "Agentic Fuzzing for Indirect-Call Ground Truth",
     "description": "An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.",
-    "skills": ["fuzzer internals (AFL++)", "SMT-based proof", "agentic systems", "static/dynamic analysis"]
+    "skills": ["fuzzer internals (AFL++)", "SMT-based proof", "agentic systems"]
   },
   {
     "name": "ACaM — Agent Capability Model (IBM Research)",
-    "description": "A static analysis pipeline combining program analysis with LLM semantic-lifting to detect threats in LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen) — exfiltration chains, prompt injection, policy violations, LLM-poisoning-triggered exfiltration, and covert channels. Also covers information-flow/taint propagation across multi-agent pipelines, vulnerability scanning of deployed agentic systems, LLM-generated fuzzing grammars, and supply-chain attacks via description–implementation divergence (DID).",
-    "skills": ["static analysis", "LLM integration", "LangChain/LangGraph internals", "taint/information-flow analysis", "vulnerability scanning", "fuzzing grammar generation", "supply chain security", "threat modeling"]
+    "description": "A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.",
+    "skills": ["neurosymbolic analysis", "LLM integration", "taint analysis", "threat modeling"]
   }
 ]

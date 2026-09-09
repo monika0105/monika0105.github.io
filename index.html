@@ -33,6 +33,7 @@
   --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
 
   --radius: 6px;
+  --nav-w: 190px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,7 +78,21 @@ a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
 /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
-.page { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+.page { max-width: 680px; margin-left: var(--nav-w); padding: 4rem 3rem 5rem; }
+
+/* ─── SIDE NAV ───────────────────────────────────────────────────────── */
+.side-nav {
+  position: fixed; top: 0; left: 0; width: var(--nav-w); height: 100vh;
+  overflow-y: auto; padding: 2.5rem 1.25rem;
+  background: var(--bg-card); border-right: 1px solid var(--border);
+}
+.side-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; }
+.side-nav a {
+  display: block; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.02em;
+  padding: 0.45rem 0.6rem; border-radius: var(--radius); text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.side-nav a:hover, .side-nav a.active { color: var(--text); background: var(--bg-card2); text-decoration: none; }
 
 /* ─── HERO ───────────────────────────────────────────────────────────── */
 .hero { text-align: center; padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--border); }
@@ -229,7 +244,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {
-  max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem 3rem;
+  max-width: 680px; margin-left: var(--nav-w); padding: 2rem 3rem 3rem;
   border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-faint);
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
@@ -244,6 +259,11 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 
 /* ─── MOBILE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .side-nav { display: none; }
+  .page { margin-left: 0; }
+  .site-footer { margin-left: 0; }
+}
 @media (max-width: 640px) {
   .page { padding: 2.5rem 1.25rem 3.5rem; }
   .pub-item { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -259,6 +279,18 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 </style>
 </head>
 <body>
+<nav class="side-nav" aria-label="Page navigation">
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+  </ul>
+</nav>
 <div class="page">
 
   <!-- HERO -->
@@ -333,32 +365,32 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
       
       <div class="project-item">
         <div class="project-name">DISA</div>
-        <p class="project-desc">A transformer-based disassembly framework that recovers code layout and memory block boundaries on stripped binaries, feeding downstream CFG recovery.</p>
-        <p class="project-skills"><strong>Skills:</strong> static disassembly, transformer models, CFG recovery</p>
+        <p class="project-desc">AI/ML-assisted memory modeling for stripped binaries — recovering code layout and memory boundaries to power value-set analysis for more accurate indirect call resolution.</p>
+        <p class="project-skills"><strong>Skills:</strong> AI/ML memory modeling, value-set analysis, indirect-call resolution</p>
       </div>
 
       <div class="project-item">
         <div class="project-name">iResolveX (under review, NDSS)</div>
-        <p class="project-desc">A multi-stage pipeline combining high-recall indirect-call target supersets with ML-guided re-ranking, producing p-IndirectCFG.</p>
-        <p class="project-skills"><strong>Skills:</strong> static/binary analysis, ML-guided ranking, indirect-call resolution</p>
+        <p class="project-desc">Introduces a new meta-CFG construct — p-IndirectCFG — so downstream analyses get a CFG customized to their own precision/recall needs, instead of one traditional one-size-fits-all CFG.</p>
+        <p class="project-skills"><strong>Skills:</strong> meta-CFG construction, ML-guided ranking, indirect-call resolution</p>
       </div>
 
       <div class="project-item">
         <div class="project-name">CAIR (targeting ASIACCS 2027)</div>
-        <p class="project-desc">A GNN-based, pluggable indirect-call refinement approach using Structured Call Refinement Graphs (SCRGs).</p>
-        <p class="project-skills"><strong>Skills:</strong> graph neural networks, SCRG construction, benchmarking on SPEC CPU</p>
+        <p class="project-desc">Separates weak from strong program-analysis evidence, using ML to combine them for more precise indirect call resolution.</p>
+        <p class="project-skills"><strong>Skills:</strong> graph neural networks, evidence weighting, indirect-call resolution</p>
       </div>
 
       <div class="project-item">
         <div class="project-name">Agentic Fuzzing for Indirect-Call Ground Truth</div>
         <p class="project-desc">An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.</p>
-        <p class="project-skills"><strong>Skills:</strong> fuzzer internals (AFL++), SMT-based proof, agentic systems, static/dynamic analysis</p>
+        <p class="project-skills"><strong>Skills:</strong> fuzzer internals (AFL++), SMT-based proof, agentic systems</p>
       </div>
 
       <div class="project-item">
         <div class="project-name">ACaM — Agent Capability Model (IBM Research)</div>
-        <p class="project-desc">A static analysis pipeline combining program analysis with LLM semantic-lifting to detect threats in LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen) — exfiltration chains, prompt injection, policy violations, LLM-poisoning-triggered exfiltration, and covert channels. Also covers information-flow/taint propagation across multi-agent pipelines, vulnerability scanning of deployed agentic systems, LLM-generated fuzzing grammars, and supply-chain attacks via description–implementation divergence (DID).</p>
-        <p class="project-skills"><strong>Skills:</strong> static analysis, LLM integration, LangChain/LangGraph internals, taint/information-flow analysis, vulnerability scanning, fuzzing grammar generation, supply chain security, threat modeling</p>
+        <p class="project-desc">A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.</p>
+        <p class="project-skills"><strong>Skills:</strong> neurosymbolic analysis, LLM integration, taint analysis, threat modeling</p>
       </div>
     </div>
   </section>
@@ -666,6 +698,20 @@ toggle.addEventListener('click', () => {
     localStorage.setItem('theme', 'dark');
   }
 });
+
+// ── Active nav link: rootMargin works for tall sections ────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.side-nav a');
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.side-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>

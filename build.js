@@ -207,6 +207,7 @@ function buildHtml() {
   --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
 
   --radius: 6px;
+  --nav-w: 190px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -251,7 +252,21 @@ a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
 
 /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
-.page { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem 5rem; }
+.page { max-width: 680px; margin-left: var(--nav-w); padding: 4rem 3rem 5rem; }
+
+/* ─── SIDE NAV ───────────────────────────────────────────────────────── */
+.side-nav {
+  position: fixed; top: 0; left: 0; width: var(--nav-w); height: 100vh;
+  overflow-y: auto; padding: 2.5rem 1.25rem;
+  background: var(--bg-card); border-right: 1px solid var(--border);
+}
+.side-nav ul { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; }
+.side-nav a {
+  display: block; font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.02em;
+  padding: 0.45rem 0.6rem; border-radius: var(--radius); text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.side-nav a:hover, .side-nav a.active { color: var(--text); background: var(--bg-card2); text-decoration: none; }
 
 /* ─── HERO ───────────────────────────────────────────────────────────── */
 .hero { text-align: center; padding-bottom: 3rem; margin-bottom: 3rem; border-bottom: 1px solid var(--border); }
@@ -403,7 +418,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {
-  max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem 3rem;
+  max-width: 680px; margin-left: var(--nav-w); padding: 2rem 3rem 3rem;
   border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-faint);
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }
@@ -418,6 +433,11 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 .theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 
 /* ─── MOBILE ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .side-nav { display: none; }
+  .page { margin-left: 0; }
+  .site-footer { margin-left: 0; }
+}
 @media (max-width: 640px) {
   .page { padding: 2.5rem 1.25rem 3.5rem; }
   .pub-item { grid-template-columns: 1fr; gap: 0.4rem; }
@@ -433,6 +453,18 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 </style>
 </head>
 <body>
+<nav class="side-nav" aria-label="Page navigation">
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+  </ul>
+</nav>
 <div class="page">
 
   <!-- HERO -->
@@ -553,6 +585,20 @@ toggle.addEventListener('click', () => {
     localStorage.setItem('theme', 'dark');
   }
 });
+
+// ── Active nav link: rootMargin works for tall sections ────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.side-nav a');
+const observer  = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.side-nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>`;
