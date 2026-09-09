@@ -273,7 +273,8 @@ a:hover {{ text-decoration: underline; }}
 a:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }}
 
 /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
-.page {{ max-width: 680px; margin-left: var(--nav-w); padding: 4rem 3rem 5rem; }}
+.page {{ margin-left: var(--nav-w); }}
+.page-inner {{ max-width: 680px; margin: 0 auto; padding: 4rem 3rem 5rem; }}
 
 /* ─── SIDE NAV ───────────────────────────────────────────────────────── */
 .side-nav {{
@@ -439,8 +440,11 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
 
 /* ─── FOOTER ─────────────────────────────────────────────────────────── */
 .site-footer {{
-  max-width: 680px; margin-left: var(--nav-w); padding: 2rem 3rem 3rem;
+  margin-left: var(--nav-w);
   border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-faint);
+}}
+.footer-inner {{
+  max-width: 680px; margin: 0 auto; padding: 2rem 3rem 3rem;
   display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center;
 }}
 .site-footer a {{ color: var(--text-faint); }}
@@ -460,13 +464,13 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
   .site-footer {{ margin-left: 0; }}
 }}
 @media (max-width: 640px) {{
-  .page {{ padding: 2.5rem 1.25rem 3.5rem; }}
+  .page-inner {{ padding: 2.5rem 1.25rem 3.5rem; }}
   .pub-item {{ grid-template-columns: 1fr; gap: 0.4rem; }}
   .edu-item {{ grid-template-columns: 1fr; }}
   .edu-period {{ grid-column: 1; grid-row: auto; }}
   .award-item {{ flex-wrap: wrap; }}
   .award-year {{ margin-left: 0; }}
-  .site-footer {{ flex-direction: column; align-items: flex-start; }}
+  .footer-inner {{ flex-direction: column; align-items: flex-start; }}
 }}
 @media (prefers-reduced-motion: reduce) {{
   *, *::before, *::after {{ transition: none !important; animation: none !important; }}
@@ -487,6 +491,7 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
   </ul>
 </nav>
 <div class="page">
+<div class="page-inner">
 
   <!-- HERO -->
   <header class="hero">
@@ -573,10 +578,13 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
   </section>
 
 </div>
+</div>
 
 <footer class="site-footer">
-  <span>{p['name']} &middot; {p['title']}</span>
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">toggle theme</button>
+  <div class="footer-inner">
+    <span>{p['name']} &middot; {p['title']}</span>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">toggle theme</button>
+  </div>
 </footer>
 
 {gc}
