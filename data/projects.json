@@ -1,42 +1,60 @@
 [
   {
-    "name": "DISA",
-    "description": "AI/ML-assisted memory modeling for stripped binaries — recovering code layout and memory boundaries to power value-set analysis for more accurate indirect call resolution.",
-    "skills": ["AI/ML memory modeling", "value-set analysis", "indirect-call resolution"]
+    "group": "Neurosymbolic Binary Analysis",
+    "group_note": "Penn State — current research",
+    "items": [
+      {
+        "name": "DISA (done)",
+        "description": "AI/ML-assisted memory modeling for stripped binaries — recovering code layout and memory boundaries to power value-set analysis for more accurate indirect call resolution.",
+        "skills": ["AI/ML memory modeling", "value-set analysis", "indirect-call resolution"]
+      },
+      {
+        "name": "iResolveX (under review, NDSS)",
+        "description": "Introduces a new meta-CFG construct — p-IndirectCFG — so downstream analyses get a CFG customized to their own precision/recall needs, instead of one traditional one-size-fits-all CFG.",
+        "skills": ["meta-CFG construction", "ML-guided ranking", "indirect-call resolution"]
+      },
+      {
+        "name": "CAIR (targeting ASIACCS 2027)",
+        "description": "Separates weak from strong program-analysis evidence, using ML to combine them for more precise indirect call resolution.",
+        "skills": ["graph neural networks", "evidence weighting", "indirect-call resolution"]
+      },
+      {
+        "name": "Agentic Fuzzing for Indirect-Call Ground Truth (in progress)",
+        "description": "An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.",
+        "skills": ["fuzzer internals (AFL++)", "SMT-based proof", "agentic systems"]
+      }
+    ]
   },
   {
-    "name": "iResolveX (under review, NDSS)",
-    "description": "Introduces a new meta-CFG construct — p-IndirectCFG — so downstream analyses get a CFG customized to their own precision/recall needs, instead of one traditional one-size-fits-all CFG.",
-    "skills": ["meta-CFG construction", "ML-guided ranking", "indirect-call resolution"]
+    "group": "Agentic Security",
+    "group_note": "IBM Research — currently actively pursuing",
+    "items": [
+      {
+        "name": "ACaM — Agent Capability Model",
+        "description": "A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.",
+        "skills": ["neurosymbolic analysis", "LLM integration", "taint analysis", "threat modeling"]
+      }
+    ]
   },
   {
-    "name": "CAIR (targeting ASIACCS 2027)",
-    "description": "Separates weak from strong program-analysis evidence, using ML to combine them for more precise indirect call resolution.",
-    "skills": ["graph neural networks", "evidence weighting", "indirect-call resolution"]
-  },
-  {
-    "name": "Agentic Fuzzing for Indirect-Call Ground Truth",
-    "description": "An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.",
-    "skills": ["fuzzer internals (AFL++)", "SMT-based proof", "agentic systems"]
-  },
-  {
-    "name": "ACaM — Agent Capability Model (IBM Research)",
-    "description": "A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.",
-    "skills": ["neurosymbolic analysis", "LLM integration", "taint analysis", "threat modeling"]
-  },
-  {
-    "name": "Trusted Systems for I&C Networks (BARC)",
-    "description": "Delivered an in-house Hardware Reference Monitor (PCIe & USB) for industrial control networks — Secure Boot, Authentication, and Remote Attestation for host/guest Linux and Windows, backed by kernel/device drivers, an Application Whitelisting framework, and a real-time trust dashboard. Also shipped a DPI-based Industrial Control Firewall (Modbus/TCP) for field-to-supervisory policy enforcement, and extended QEMU-KVM with SRAM-based PUF hardware security.",
-    "skills": ["hardware reference monitor", "secure boot & remote attestation", "kernel/device drivers", "industrial control (Modbus/TCP)"]
-  },
-  {
-    "name": "Automated Multilayered Malware Classifier (BARC)",
-    "description": "Designed, built, and deployed an ensemble malware classifier combining static and dynamic analysis, with CFG-driven shallow and deep features, integrated into an Application Whitelisting framework for host-side protection.",
-    "skills": ["ensemble classifiers", "static/dynamic analysis", "CFG-based features"]
-  },
-  {
-    "name": "D²4D — Dynamic Deep 4-Dimensional Malware Detection",
-    "description": "A dynamic analysis framework for malware detection built on four complementary feature dimensions, published in IEEE Transactions on Information Forensics and Security (TIFS).",
-    "skills": ["dynamic analysis", "feature engineering", "malware detection"]
+    "group": "Trusted Systems & Malware Analysis",
+    "group_note": "BARC",
+    "items": [
+      {
+        "name": "Trusted Systems for I&C Networks",
+        "description": "Delivered an in-house Hardware Reference Monitor (PCIe & USB) for industrial control networks — Secure Boot, Authentication, and Remote Attestation for host/guest Linux and Windows, backed by kernel/device drivers, an Application Whitelisting framework, and a real-time trust dashboard. Also shipped a DPI-based Industrial Control Firewall (Modbus/TCP) for field-to-supervisory policy enforcement, and extended QEMU-KVM with SRAM-based PUF hardware security.",
+        "skills": ["hardware reference monitor", "secure boot & remote attestation", "kernel/device drivers", "industrial control (Modbus/TCP)"]
+      },
+      {
+        "name": "Automated Multilayered Malware Classifier",
+        "description": "Designed, built, and deployed an ensemble malware classifier combining static and dynamic analysis, with CFG-driven shallow and deep features, integrated into an Application Whitelisting framework for host-side protection.",
+        "skills": ["ensemble classifiers", "static/dynamic analysis", "CFG-based features"]
+      },
+      {
+        "name": "D²4D — Dynamic Deep 4-Dimensional Malware Detection",
+        "description": "A dynamic analysis framework for malware detection built on four complementary feature dimensions, published in IEEE Transactions on Information Forensics and Security (TIFS).",
+        "skills": ["dynamic analysis", "feature engineering", "malware detection"]
+      }
+    ]
   }
 ]

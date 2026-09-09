@@ -123,15 +123,28 @@ function renderAwards(aws) {
   }).join('\n');
 }
 
-function renderProjects(prs) {
-  return prs.map(pr => {
-    const skillsHtml = pr.skills ? `<p class="project-skills"><strong>Skills:</strong> ${pr.skills.join(', ')}</p>` : '';
-    return `
+function renderProjectItem(pr) {
+  const skillsHtml = pr.skills ? `<p class="project-skills"><strong>Skills:</strong> ${pr.skills.join(', ')}</p>` : '';
+  return `
       <div class="project-item">
         <div class="project-name">${pr.name}</div>
         <p class="project-desc">${pr.description}</p>
         ${skillsHtml}
       </div>`;
+}
+
+function renderProjects(groups) {
+  return groups.map(g => {
+    const itemsHtml = g.items.map(renderProjectItem).join('');
+    return `
+    <div class="project-group">
+      <div class="project-group-head">
+        <span class="project-group-title">${g.group}</span>
+        <span class="project-group-note">${g.group_note}</span>
+      </div>
+      <div class="project-list">${itemsHtml}
+      </div>
+    </div>`;
   }).join('\n');
 }
 
@@ -386,6 +399,11 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────────────────── */
+.project-group { margin-bottom: 2.25rem; }
+.project-group:last-child { margin-bottom: 0; }
+.project-group-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.1rem 0.6rem; margin-bottom: 1rem; }
+.project-group-title { font-size: 1rem; font-weight: 600; color: var(--text); }
+.project-group-note { font-size: 0.75rem; color: var(--text-faint); font-style: italic; }
 .project-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .project-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
@@ -505,9 +523,7 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
   <!-- PROJECTS -->
   <section id="projects">
     <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      ${renderProjects(projects)}
-    </div>
+    ${renderProjects(projects)}
   </section>
 
   <!-- SKILLS SUMMARY -->

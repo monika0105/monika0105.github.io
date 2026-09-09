@@ -212,6 +212,11 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
 }
 
 /* ─── PROJECTS ───────────────────────────────────────────────────────── */
+.project-group { margin-bottom: 2.25rem; }
+.project-group:last-child { margin-bottom: 0; }
+.project-group-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.1rem 0.6rem; margin-bottom: 1rem; }
+.project-group-title { font-size: 1rem; font-weight: 600; color: var(--text); }
+.project-group-note { font-size: 0.75rem; color: var(--text-faint); font-style: italic; }
 .project-list { display: flex; flex-direction: column; gap: 1.5rem; }
 .project-name { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 0.25rem; }
 .project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
@@ -366,54 +371,71 @@ a.pub-tag:hover { opacity: 0.8; text-decoration: none; }
   <!-- PROJECTS -->
   <section id="projects">
     <h2 class="section-title">Projects</h2>
-    <div class="project-list">
-      
+    
+    <div class="project-group">
+      <div class="project-group-head">
+        <span class="project-group-title">Neurosymbolic Binary Analysis</span>
+        <span class="project-group-note">Penn State — current research</span>
+      </div>
+      <div class="project-list">
       <div class="project-item">
-        <div class="project-name">DISA</div>
+        <div class="project-name">DISA (done)</div>
         <p class="project-desc">AI/ML-assisted memory modeling for stripped binaries — recovering code layout and memory boundaries to power value-set analysis for more accurate indirect call resolution.</p>
         <p class="project-skills"><strong>Skills:</strong> AI/ML memory modeling, value-set analysis, indirect-call resolution</p>
       </div>
-
       <div class="project-item">
         <div class="project-name">iResolveX (under review, NDSS)</div>
         <p class="project-desc">Introduces a new meta-CFG construct — p-IndirectCFG — so downstream analyses get a CFG customized to their own precision/recall needs, instead of one traditional one-size-fits-all CFG.</p>
         <p class="project-skills"><strong>Skills:</strong> meta-CFG construction, ML-guided ranking, indirect-call resolution</p>
       </div>
-
       <div class="project-item">
         <div class="project-name">CAIR (targeting ASIACCS 2027)</div>
         <p class="project-desc">Separates weak from strong program-analysis evidence, using ML to combine them for more precise indirect call resolution.</p>
         <p class="project-skills"><strong>Skills:</strong> graph neural networks, evidence weighting, indirect-call resolution</p>
       </div>
-
       <div class="project-item">
-        <div class="project-name">Agentic Fuzzing for Indirect-Call Ground Truth</div>
+        <div class="project-name">Agentic Fuzzing for Indirect-Call Ground Truth (in progress)</div>
         <p class="project-desc">An AFL++-based agentic fuzzer built to establish complete ground truth for indirect-call pairs via a residual-risk framing.</p>
         <p class="project-skills"><strong>Skills:</strong> fuzzer internals (AFL++), SMT-based proof, agentic systems</p>
       </div>
+      </div>
+    </div>
 
+    <div class="project-group">
+      <div class="project-group-head">
+        <span class="project-group-title">Agentic Security</span>
+        <span class="project-group-note">IBM Research — currently actively pursuing</span>
+      </div>
+      <div class="project-list">
       <div class="project-item">
-        <div class="project-name">ACaM — Agent Capability Model (IBM Research)</div>
+        <div class="project-name">ACaM — Agent Capability Model</div>
         <p class="project-desc">A neurosymbolic solution for agentic vulnerability discovery — pairing program analysis with LLM semantic-lifting to detect threats across LLM agent pipelines (LangChain/LangGraph, extending to CrewAI/AutoGen): prompt injection, exfiltration chains, and policy violations.</p>
         <p class="project-skills"><strong>Skills:</strong> neurosymbolic analysis, LLM integration, taint analysis, threat modeling</p>
       </div>
+      </div>
+    </div>
 
+    <div class="project-group">
+      <div class="project-group-head">
+        <span class="project-group-title">Trusted Systems & Malware Analysis</span>
+        <span class="project-group-note">BARC</span>
+      </div>
+      <div class="project-list">
       <div class="project-item">
-        <div class="project-name">Trusted Systems for I&C Networks (BARC)</div>
+        <div class="project-name">Trusted Systems for I&C Networks</div>
         <p class="project-desc">Delivered an in-house Hardware Reference Monitor (PCIe & USB) for industrial control networks — Secure Boot, Authentication, and Remote Attestation for host/guest Linux and Windows, backed by kernel/device drivers, an Application Whitelisting framework, and a real-time trust dashboard. Also shipped a DPI-based Industrial Control Firewall (Modbus/TCP) for field-to-supervisory policy enforcement, and extended QEMU-KVM with SRAM-based PUF hardware security.</p>
         <p class="project-skills"><strong>Skills:</strong> hardware reference monitor, secure boot & remote attestation, kernel/device drivers, industrial control (Modbus/TCP)</p>
       </div>
-
       <div class="project-item">
-        <div class="project-name">Automated Multilayered Malware Classifier (BARC)</div>
+        <div class="project-name">Automated Multilayered Malware Classifier</div>
         <p class="project-desc">Designed, built, and deployed an ensemble malware classifier combining static and dynamic analysis, with CFG-driven shallow and deep features, integrated into an Application Whitelisting framework for host-side protection.</p>
         <p class="project-skills"><strong>Skills:</strong> ensemble classifiers, static/dynamic analysis, CFG-based features</p>
       </div>
-
       <div class="project-item">
         <div class="project-name">D²4D — Dynamic Deep 4-Dimensional Malware Detection</div>
         <p class="project-desc">A dynamic analysis framework for malware detection built on four complementary feature dimensions, published in IEEE Transactions on Information Forensics and Security (TIFS).</p>
         <p class="project-skills"><strong>Skills:</strong> dynamic analysis, feature engineering, malware detection</p>
+      </div>
       </div>
     </div>
   </section>
