@@ -90,6 +90,10 @@ def render_publications(pubs):
     return "\n".join(rows)
 
 
+def render_research(paras):
+    return "\n      ".join(f"<p>{para}</p>" for para in paras)
+
+
 def render_experience(exp):
     rows = []
     for e in exp:
@@ -295,6 +299,10 @@ section {{ margin-bottom: 3.5rem; }}
   margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
 }}
 
+/* ─── RESEARCH ───────────────────────────────────────────────────────── */
+.research-body {{ font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; }}
+.research-body p + p {{ margin-top: 1rem; }}
+
 /* ─── PUBLICATIONS ───────────────────────────────────────────────────── */
 .pub-list {{ display: flex; flex-direction: column; gap: 0; }}
 .pub-item {{
@@ -461,6 +469,14 @@ a.pub-tag:hover {{ opacity: 0.8; text-decoration: none; }}
       <a href="{lk['cv']}" target="_blank" rel="noopener">CV / R&eacute;sum&eacute;</a>
     </div>
   </header>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <h2 class="section-title">{p['research_title']}</h2>
+    <div class="research-body">
+      {render_research(p['research_intro'])}
+    </div>
+  </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
