@@ -6,8 +6,7 @@
   "photo": "images/profile.jpg",
   "research_title": "AI-Assisted (Neurosymbolic) Program Analysis",
   "research_intro": [
-    "My PhD research is on AI-assisted, or neurosymbolic, program analysis — combining machine learning with traditional static analysis to make binary reverse engineering more scalable and reliable. Reverse engineering compiled code is hard: interleaved code and data, missing names, types, and stack frames, aggressive compiler optimizations, and obfuscation all defeat purely heuristic tools. AI can surface patterns invisible to heuristics, but on its own it lacks the completeness and reliability that security-critical analysis demands. My work builds hybrid pipelines — DISA, iResolveX, CAIR, and related projects — that pair learned models with sound static reasoning to recover control flow, resolve indirect calls, and reconstruct code structure in stripped binaries.",
-    "Before Penn State, I spent five years as a Research Scientist at Bhabha Atomic Research Centre (BARC), India's premier nuclear research facility, where I worked on trusted systems and malware detection for industrial control networks — hardware reference monitors, DPI-based firewalls, and ensemble classifiers combining static and dynamic analysis. That hands-on systems-security work is what pulled me toward research: I wanted better tools for understanding compiled code at scale, which became the throughline of my PhD."
+    "My PhD research is on AI-assisted, or neurosymbolic, program analysis — combining machine learning with traditional static analysis for binary reverse engineering. It grew out of five years as a Research Scientist at BARC, where hands-on systems-security work made me want better tools for understanding compiled code at scale."
   ],
   "links": {
     "scholar": "https://scholar.google.com/citations?user=_pZNnycAAAAJ&hl=en",
